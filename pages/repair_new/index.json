@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "image-picker": "/components/image_picker/index"
+    },
+    "navigationBarTitleText": "新建报修"
+}

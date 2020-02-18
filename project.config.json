@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -24,7 +24,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.10.1",
-	"appid": "wx0f8e86c3b998d9a1",
+	"appid": "wx11b43e4dbcacb326",
 	"projectname": "wanda-xcx",
 	"debugOptions": {
 		"hidedInDevtools": []
@@ -67,6 +67,13 @@
 					"id": -1,
 					"name": "代办",
 					"pathName": "pages/todo/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "新建报修",
+					"pathName": "pages/repair_new/index",
 					"scene": null
 				}
 			]

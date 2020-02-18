@@ -1,0 +1,11 @@
+<view class="image_wrap">
+    <scrolle-view scroll-x class="image_scroll">
+        <view class="image_item" wx:for="{{filePath}}" wx:key="*this">
+            <image src="{{item}}" bindtap = "priviewImage" data-index="{{index}}" />
+            <icon type="clear" bindtap = "deleteImage" data-index="{{index}}" size="20"></icon>
+        </view>
+        <view>
+            <image wx:if="{{filePath.length<5}}" class="image_add" bindtap="selectImage" src="/icons/addpic.png" mode="widthFix" />
+        </view>
+    </scrolle-view>
+</view>

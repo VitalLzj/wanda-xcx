@@ -1,12 +1,14 @@
 let ajaxTimes = 0;
 let app = getApp();
-const baseUrl = app.globalData.schema + "://" + app.globalData.host + ":" + app.globalData.port + app.globalData.path;
+const baseUrl = app.globalData.schema + "://" + app.globalData.host + app.globalData.path;
 
-export const httpGet = (params) => {
-    wx.showLoading({
-        title: "正在加载..."
-    });
-    ajaxTimes++;
+export const httpGet = (isShowLoading, params) => {
+    if (isShowLoading) {
+        wx.showLoading({
+            title: "正在加载..."
+        });
+        ajaxTimes++;
+    }
     return new Promise((resolve, reject) => {
         wx.request({
             ...params,
@@ -18,10 +20,13 @@ export const httpGet = (params) => {
                 reject(err);
             },
             complete: () => {
-                ajaxTimes--;
-                if (ajaxTimes === 0) {
-                    wx.hideLoading();
+                if (isShowLoading) {
+                    ajaxTimes--;
+                    if (ajaxTimes === 0) {
+                        wx.hideLoading();
+                    }
                 }
+
             }
         });
 
@@ -53,4 +58,3 @@ export const httpPost = (params) => {
     })
 
 }
-

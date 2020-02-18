@@ -1,6 +1,4 @@
 {
-  "usingComponents": {
-    "myTabs":"../../components/myTabs/myTabs"
-  },
-  "navigationBarTitleText": "待办"
+    "usingComponents": {},
+    "navigationBarTitleText": "待办"
 }

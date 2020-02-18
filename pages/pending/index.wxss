@@ -4,7 +4,6 @@ page {
 }
 .weui-tabs-bar__wrp {
   border-bottom: 1px solid #eee;
-  margin-top: 10px;
 }
 .weui-tabs-swiper {
   width: 100%;
@@ -15,6 +14,9 @@ page {
 }
 .tab-bar-title__selected {
   font-weight: bold;
+}
+.tab-content {
+  margin-top: 88rpx;
 }
 .tab-content .xj_item {
   display: flex;

@@ -1,7 +1,8 @@
 {
-  "usingComponents": {
-    "mp-tabs": "../../components/tabs/index",
-    "myTabs": "../../components/myTabs/myTabs"
-  },
-  "navigationBarTitleText": "待领"
+    "usingComponents": {
+        "mp-tabs": "../../components/tabs/index"
+    },
+    "navigationBarTitleText": "待领",
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle": "dark"
 }

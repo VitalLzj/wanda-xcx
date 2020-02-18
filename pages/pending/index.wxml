@@ -1,12 +1,6 @@
-<mp-tabs tabs="{{tabs}}" activeTab="{{activeTab}}" swiperClass="weui-tabs-swiper" bindtabclick="onTabCLick" bindchange="onChange" tabUnderlineColor="{{themeColor}}" tabActiveTextColor="{{themeColor}}" activeClass="tab-bar-title__selected">
+<mp-tabs tabs="{{tabs}}" activeTab="{{activeTab}}" swiperClass="weui-tabs-swiper" bindtabclick="onTabCLick" tabUnderlineColor="{{themeColor}}" tabActiveTextColor="{{themeColor}}" activeClass="tab-bar-title__selected">
   <block wx:for="{{tabs}}" wx:key="title">
-    <myTabs slot="tab-content-{{index}}" wx:if="{{item.title === '安全管理'}}" tabs="{{child1}}" activeTab="{{child1ActiveTab}}" bindtabsItemChange="handleChildClick" data-title="{{item.title}}">
-      111
-    </myTabs>
-    <myTabs slot="tab-content-{{index}}" wx:elif="{{item.title === '移交管理'}}" tabs="{{child2}}" activeTab="{{child2ActiveTab}}" bindtabsItemChange="handleChildClick" data-title="{{item.title}}">
-      222
-    </myTabs>
-    <scroll-view scroll-y class="tab-content" slot="tab-content-{{index}}" wx:elif="{{item.title ==='巡检'}}">
+    <view class="tab-content" slot="tab-content-{{index}}">
       <view class="xj_item" wx:for="{{xjData}}" wx:key="worktodoid">
         <checkbox />
         <view class="xj_item_content">
@@ -19,6 +13,6 @@
         </view>
         <view class="xj_item status">{{item.status}}</view>
       </view>
-    </scroll-view>
+    </view>
   </block>
 </mp-tabs>

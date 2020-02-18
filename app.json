@@ -1,57 +1,56 @@
 {
-  "pages": [
-    "pages/index/index",
-    "pages/pending/index",
-    "pages/todo/index",
-    "pages/user/index",
-    "pages/new/index"
-  ],
-  "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#005bac",
-    "navigationBarTitleText": "",
-    "navigationBarTextStyle": "white"
-  },
-  "tabBar": {
-    "custom": true,
-    "color": "#bfbfbf",
-    "selectedColor": "#005bac",
-    "backgroundColor": "",
-    "position": "bottom",
-    "borderStyle": "black",
-    "list": [
-      {
-        "pagePath": "pages/index/index",
-        "text": "首页",
-        "iconPath": "icons/home.png",
-        "selectedIconPath": "icons/home_pressed.png"
-      },
-      {
-        "pagePath": "pages/pending/index",
-        "text": "待领",
-        "iconPath": "icons/pending.png",
-        "selectedIconPath": "icons/pending_pressed.png"
-      },
-      {
-        "pagePath": "pages/new/index",
-        "text": "新建",
-        "iconPath": "icons/new.png",
-        "selectedIconPath": "icons/new.png"
-      },
-      {
-        "pagePath": "pages/todo/index",
-        "text": "代办",
-        "iconPath": "icons/todo.png",
-        "selectedIconPath": "icons/todo_pressed.png"
-      },
-      {
-        "pagePath": "pages/user/index",
-        "text": "个人",
-        "iconPath": "icons/user.png",
-        "selectedIconPath": "icons/user_pressed.png"
-      }
-    ]
-  },
-  "style": "v2",
-  "sitemapLocation": "sitemap.json"
+    "pages": [
+        "pages/index/index",
+        "pages/pending/index",
+        "pages/todo/index",
+        "pages/user/index",
+        "pages/new/index",
+        "pages/repair_new/index"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#005bac",
+        "navigationBarTitleText": "",
+        "navigationBarTextStyle": "white"
+    },
+    "tabBar": {
+        "custom": true,
+        "color": "#bfbfbf",
+        "selectedColor": "#005bac",
+        "backgroundColor": "",
+        "position": "bottom",
+        "borderStyle": "black",
+        "list": [{
+                "pagePath": "pages/index/index",
+                "text": "首页",
+                "iconPath": "icons/home.png",
+                "selectedIconPath": "icons/home_pressed.png"
+            },
+            {
+                "pagePath": "pages/pending/index",
+                "text": "待领",
+                "iconPath": "icons/pending.png",
+                "selectedIconPath": "icons/pending_pressed.png"
+            },
+            {
+                "pagePath": "pages/new/index",
+                "text": "新建",
+                "iconPath": "icons/new.png",
+                "selectedIconPath": "icons/new.png"
+            },
+            {
+                "pagePath": "pages/todo/index",
+                "text": "代办",
+                "iconPath": "icons/todo.png",
+                "selectedIconPath": "icons/todo_pressed.png"
+            },
+            {
+                "pagePath": "pages/user/index",
+                "text": "个人",
+                "iconPath": "icons/user.png",
+                "selectedIconPath": "icons/user_pressed.png"
+            }
+        ]
+    },
+    "sitemapLocation": "sitemap.json"
 }

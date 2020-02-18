@@ -1,0 +1,1 @@
+<image-picker filePath="{{filePath}}" bindselectImage="handleImageSelect" binddeleteImage="handleImageDelete"></image-picker>
