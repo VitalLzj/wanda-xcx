@@ -1,0 +1,3 @@
+<view class="bar_code_wrap">
+    <text bindtouchstart="startRecoder" bindtouchend="stopRecoder" class="iconfont icon-ai02"></text>
+</view>

@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
-  "navigationBarTitleText": "商管工程"
+    "usingComponents": {
+        "banner": "/components/banner/index"
+    },
+    "navigationBarTitleText": "商管工程"
 }

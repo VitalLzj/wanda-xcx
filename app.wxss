@@ -1,18 +1,24 @@
 /**app.wxss**/
+
 @import "./styles/weui.wxss";
-
-page,view,text,swiper,swiper-item,image,navigator{
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+page,
+view,
+text,
+swiper,
+swiper-item,
+image,
+navigator {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
-page{
-  /* 定义全局主题颜色变量 */
-  --themeColor:#005bac;
-  font-size: 28rpx;
+page {
+    /* 定义全局主题颜色变量 */
+    --themeColor: #005bac;
+    font-size: 28rpx;
 }
 
-image{
-  width: 100%;
+image {
+    width: 100%;
 }

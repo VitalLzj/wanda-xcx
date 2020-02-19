@@ -1,0 +1,3 @@
+<view class="bar_code_wrap">
+    <text bindtap = "handleScan" class="iconfont icon-saoma"></text>
+</view>

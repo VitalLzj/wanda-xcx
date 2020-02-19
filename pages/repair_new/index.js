@@ -1,9 +1,11 @@
 import { chooseImage } from '../../utils/asyncWx.js';
 import regeneratorRuntime from '../../libs/runtime/runtime';
+
 //Page Object
 Page({
     data: {
-        filePath: []
+        filePath: [],
+        btn_text: '开始录音'
     },
     //options(Object)
     onLoad: function(options) {
@@ -50,5 +52,12 @@ Page({
         this.setData({
             filePath
         });
+    },
+    handleScan(e) {
+        const result = e.detail.result;
+        console.debug(result);
+    },
+    handleSpeech(e) {
+        console.debug(e);
     }
 });

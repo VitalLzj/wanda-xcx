@@ -1,6 +1,8 @@
 {
     "usingComponents": {
-        "image-picker": "/components/image_picker/index"
+        "image-picker": "/components/image_picker/index",
+        "bar-code": "/components/bar_code/index",
+        "speech": "/components/speech/index"
     },
     "navigationBarTitleText": "新建报修"
 }

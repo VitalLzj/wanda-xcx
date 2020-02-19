@@ -1,8 +1,9 @@
 .repair {
-  position: relative;
+    position: relative;
 }
+
 .repair .weui-footer button {
-  width: 90%;
-  color: white;
-  background-color: var(--themeColor);
+    width: 90%;
+    color: white;
+    background-color: var(--themeColor);
 }

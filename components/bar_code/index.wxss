@@ -1,0 +1,9 @@
+@import "../../styles/iconfont.wxss";
+.bar_code_wrap {
+    display: inline;
+}
+
+.bar_code_wrap text {
+    padding: 10rpx;
+    font-size: 50rpx;
+}

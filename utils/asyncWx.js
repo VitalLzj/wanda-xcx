@@ -97,3 +97,24 @@ export const previewImage = (options) => {
         });
     })
 }
+
+/**
+ * 扫码
+ * 默认 二维码，只支持拍
+ * 
+ */
+export const scanCode = () => {
+    return new Promise((resolve, reject) => {
+        wx.scanCode({
+            onlyFromCamera: true,
+            scanType: ['qrCode'],
+            success: (result) => {
+                resolve(result);
+            },
+            fail: (err) => {
+                reject(err);
+            }
+        });
+
+    })
+}
