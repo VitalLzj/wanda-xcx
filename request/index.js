@@ -1,6 +1,7 @@
 let ajaxTimes = 0;
 let app = getApp();
-const baseUrl = app.globalData.schema + "://" + app.globalData.host + app.globalData.path;
+// const baseUrl = app.globalData.schema + "://" + app.globalData.host + app.globalData.path;
+const baseUrl = "http://192.168.0.101:8181/xcx-service/"
 
 export const httpGet = (isShowLoading, params) => {
     if (isShowLoading) {

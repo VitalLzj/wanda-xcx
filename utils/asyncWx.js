@@ -118,3 +118,36 @@ export const scanCode = () => {
 
     })
 }
+
+/**
+ * 检测session
+ */
+export const checkSession = () => {
+    return new Promise((resolve, reject) => {
+        wx.checkSession({
+            success: (result) => {
+                resolve(result);
+            },
+            fail: (err) => {
+                reject(err);
+            }
+        });
+
+    })
+}
+
+/**
+ * 微信登陆
+ */
+export const login = () => {
+    return new Promise((resolve, reject) => {
+        wx.login({
+            success: (result) => {
+                resolve(result);
+            },
+            fail: (err) => {
+                reject(err);
+            }
+        });
+    })
+}

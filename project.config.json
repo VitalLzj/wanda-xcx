@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -74,6 +74,14 @@
 					"id": -1,
 					"name": "新建报修",
 					"pathName": "pages/repair_new/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "个人",
+					"pathName": "pages/user/index",
+					"query": "",
 					"scene": null
 				}
 			]

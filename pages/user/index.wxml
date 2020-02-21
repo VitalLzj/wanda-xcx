@@ -1,3 +1,16 @@
+<import src="../template/template.wxml" />
+
 <button class="default" size="default" plain="{{true}}" open-type="getUserInfo">
-    登陆
+    授权
 </button>
+
+<button class="default" size="default" plain="{{true}}" bindtap="openSetting">
+    权限设置
+</button>
+
+
+<button class="default" size="default" plain="{{true}}" bindtap="getUserInfo">
+    模拟登陆
+</button>
+
+    <template is="myTemp" data="{{param1:111}}"></template>
