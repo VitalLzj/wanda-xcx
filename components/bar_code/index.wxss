@@ -1,6 +1,8 @@
 @import "../../styles/iconfont.wxss";
 .bar_code_wrap {
-    display: inline;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .bar_code_wrap text {

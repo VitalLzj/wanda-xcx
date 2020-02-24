@@ -1,9 +1,32 @@
-.repair {
-    position: relative;
+.page_repair .page_content {
+  margin-bottom: 88rpx;
 }
-
-.repair .weui-footer button {
-    width: 90%;
-    color: white;
-    background-color: var(--themeColor);
+.page_repair .page_content .tips {
+  height: 88rpx;
+  display: flex;
+  align-items: center;
+}
+.page_repair .page_content .tips text {
+  padding-left: var(--cell-horizontal-padding, 16px);
+}
+.page_repair .page_content van-uploader {
+  padding-left: var(--cell-horizontal-padding, 16px);
+}
+.page_repair .page_footer {
+  height: 88rpx;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+  margin: 0 5%;
+}
+.page_repair .page_footer button {
+  color: white;
+  flex: 6;
+  background-color: var(--themeColor);
+}
+.page_repair .page_footer my_scan {
+  flex: 1;
 }

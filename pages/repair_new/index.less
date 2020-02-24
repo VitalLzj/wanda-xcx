@@ -1,13 +1,35 @@
-.repair{
-    position: relative;
-    .repair_content{
-
-    }
-    .weui-footer{
-        button{
-            width: 90%;
-            color: white;
-            background-color: var(--themeColor);
+.page_repair{   
+    .page_content{
+        margin-bottom: 88rpx;
+        .tips{
+            height: 88rpx;
+            display: flex;
+            align-items: center;
+            text{
+               padding-left: var(--cell-horizontal-padding,16px); 
+            }
+        }
+        van-uploader{
+            padding-left: var(--cell-horizontal-padding,16px); 
         }
     }
+    .page_footer{
+        height: 88rpx;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        display: flex;
+        width: 90%;
+        justify-content: space-between;
+        margin: 0 5%;
+        button{
+            color: white;
+            flex:6;
+            background-color: var(--themeColor);
+        }
+        my_scan{
+            flex:1
+        }
+    }
+
 }

@@ -1,0 +1,5 @@
+<template name="pop_footer">
+    <view class="tmp_footer" bind:tap="onClose">
+        <text>取消</text>
+    </view>
+</template>

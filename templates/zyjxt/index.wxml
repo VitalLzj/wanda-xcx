@@ -1,0 +1,13 @@
+<import src="../pop_header/index.wxml" />
+<import src="../pop_footer/index.wxml" />
+<template name="zyjxt">
+    <view class="tmp_pop">
+        <template is="pop_header" data="{{title}}" />
+        <view class="tmp_content">
+            <scroll-view scroll-y>
+                <van-cell bind:tap="handleZyjxtItemClick" data-index="{{index}}" wx:for="{{zyjxt_arr}}" title="{{item.description}}" wx:key="id" />
+            </scroll-view>
+        </view>
+        <template is="pop_footer" />
+    </view>
+</template>

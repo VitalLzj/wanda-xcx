@@ -1,6 +1,7 @@
 /**app.wxss**/
 
 @import "./styles/weui.wxss";
+@import "./templates/bxlx/index.wxss";
 page,
 view,
 text,
@@ -16,7 +17,9 @@ navigator {
 page {
     /* 定义全局主题颜色变量 */
     --themeColor: #005bac;
+    --dividerColor: #eee;
     font-size: 28rpx;
+    background-color: #fff;
 }
 
 image {

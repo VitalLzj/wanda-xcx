@@ -1,6 +1,0 @@
-<template name="myTemp">
-    <view>
-        <text>this is a template file</text>
-        <view>{{param1}}</view>
-    </view>
-</template>

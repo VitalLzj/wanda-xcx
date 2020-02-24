@@ -64,11 +64,15 @@ App({
     checkUser() {},
     globalData: {
         themeColor: '#005bac',
-        schema: "https",
-        host: "gcgl.wanda.cn",
-        port: 443,
+        schema: "http",
+        host: "gcglcs-dev.wanda.cn",
+        port: 80,
         path: "/wanda-service/rs/",
         personid: '129362',
-        siteid: 'S1090'
+        siteid: 'S1090',
+        displayName: '马少镇',
+        mobile: '17600145417',
+        bm: '1001',
+        bmname: '哈哈哈哈'
     }
 })

@@ -1,8 +1,11 @@
 {
     "usingComponents": {
-        "image-picker": "/components/image_picker/index",
-        "bar-code": "/components/bar_code/index",
-        "speech": "/components/speech/index"
+        "van-field": "/@vant/weapp/field/index",
+        "van-uploader": "/@vant/weapp/uploader/index",
+        "van-divider": "/@vant/weapp/divider/index",
+        "my_scan": "/components/bar_code/index",
+        "van-cell": "/@vant/weapp/cell/index",
+        "van-popup": "/@vant/weapp/popup/index"
     },
     "navigationBarTitleText": "新建报修"
 }

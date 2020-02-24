@@ -1,11 +1,101 @@
-import { chooseImage } from '../../utils/asyncWx.js';
+import { formatTime } from '../../utils/date.js';
+import { httpGet } from '../../request/index.js';
 import regeneratorRuntime from '../../libs/runtime/runtime';
+
+let globalData = getApp().globalData;
 
 //Page Object
 Page({
     data: {
-        filePath: [],
-        btn_text: '开始录音'
+        bm: globalData.bm,
+        bmname: globalData.bmname,
+        bxr: globalData.personid,
+        bxsqrxm: globalData.displayName,
+        bxsqrdh: globalData.mobile,
+        wtly: '1001',
+        wtly_name: '报修申请',
+        bxlx: '1001',
+        bxlx_name: '工程管理',
+        siteid: globalData.siteid,
+        bxsj: formatTime(new Date()),
+        assetname: '',
+        assetnum: '',
+        locationname: '',
+        location: '',
+        zyjxt: '',
+        wtxx: '',
+        fwsqyxj: '1001', //优先级阈值
+        fwsqyxj_desc: '低',
+        fileList: [],
+        showPop: false,
+        yxj_arr: [],
+        bxlx_arr: [],
+        options: '',
+        zyjxt_arr: [{
+                id: 0,
+                description: '电梯系统'
+            },
+            {
+                id: 1,
+                description: '供配电系统'
+            },
+            {
+                id: 2,
+                description: '照明系统'
+            },
+            {
+                id: 3,
+                description: '监控系统'
+            },
+            {
+                id: 4,
+                description: '电子巡更系统'
+            },
+            {
+                id: 5,
+                description: 'BA系统'
+            },
+            {
+                id: 6,
+                description: '停车场管理系统'
+            },
+            {
+                id: 7,
+                description: '停车场导引系统'
+            },
+            {
+                id: 8,
+                description: '背景音乐系统'
+            },
+            {
+                id: 9,
+                description: '门禁系统'
+            },
+            {
+                id: 10,
+                description: '信息发布系统'
+            },
+            {
+                id: 11,
+                description: '报警系统'
+            },
+            {
+                id: 12,
+                description: '消防水系统'
+            },
+            {
+                id: 13,
+                description: '消防电系统'
+            },
+            {
+                id: 14,
+                description: '防排烟系统'
+            },
+            {
+                id: 15,
+                description: '空调系统'
+            }
+        ]
     },
     //options(Object)
     onLoad: function(options) {
@@ -15,49 +105,101 @@ Page({
 
     },
     onShow: function() {
-
     },
-    onHide: function() {
-
-    },
-    onUnload: function() {
-
-    },
-    onPullDownRefresh: function() {
-
-    },
-    onReachBottom: function() {
-
-    },
-    onShareAppMessage: function() {
-
-    },
-    onPageScroll: function() {
-
-    },
-    async handleImageSelect() {
-        const result = await chooseImage({ count: 5 - this.data.filePath.length });
-        //图片转base64
-        // var fileManager = wx.getFileSystemManager();
-        // const base64 = fileManager.readFileSync(result[0], 'base64');
-        // console.debug(base64);
-        this.setData({
-            filePath: [...this.data.filePath, ...result]
+    afterRead(event) {
+        const { file } = event.detail;
+        const files = [];
+        file.forEach(element => {
+            files.push({
+                url: element.path,
+                name: Date.now()
+            })
         });
-    },
-    handleImageDelete(e) {
-        const index = e.detail.index;
-        let filePath = this.data.filePath;
-        filePath.splice(index, 1);
         this.setData({
-            filePath
-        });
+            fileList: [...this.data.fileList, ...files]
+        })
     },
-    handleScan(e) {
-        const result = e.detail.result;
-        console.debug(result);
+    deleteFile(event) {
+        const index = event.detail.index;
+        console.debug(index);
     },
-    handleSpeech(e) {
-        console.debug(e);
+    handleScanCallback(event) {
+        console.debug(event);
+    },
+    async handleTap(e) {
+        const option = e.target.dataset.options;
+
+        try {
+            if (option === 'yxj') {
+                let result = await httpGet(true, {
+                    url: 'basedata/alndomain/FWYXJ'
+                });
+                result = result.data;
+                const yxj_arr = result.map((key) => {
+                    return {
+                        description: key.description,
+                        value: key.value
+                    }
+                });
+                this.setData({
+                    showPop: true,
+                    yxj_arr: yxj_arr,
+                    option
+                })
+            } else if (option === 'bxlx') {
+                let result = await httpGet(true, {
+                    url: 'basedata/alndomain/BXLX'
+                });
+                result = result.data;
+                const bxlx_arr = result.map((key) => {
+                    return {
+                        description: key.description,
+                        value: key.value
+                    }
+                });
+                this.setData({
+                    showPop: true,
+                    bxlx_arr: bxlx_arr,
+                    option
+                })
+            } else if (option === 'zyjxt') {
+                this.setData({
+                    showPop: true,
+                    option
+                })
+            }
+        } catch (error) {
+            wx.showToast({
+                title: error
+            });
+        }
+    },
+    onClose() {
+        this.setData({
+            showPop: false
+        })
+    },
+    handleYxjItemClick(e) {
+        const index = e.target.dataset.index;
+        this.setData({
+            showPop: false,
+            fwsqyxj: this.data.yxj_arr[index].value,
+            fwsqyxj_desc: this.data.yxj_arr[index].description
+        })
+    },
+    handleBxlxItemClick(e) {
+        const index = e.target.dataset.index;
+        this.setData({
+            showPop: false,
+            bxlx: this.data.bxlx_arr[index].value,
+            bxlx_name: this.data.bxlx_arr[index].description
+        })
+    },
+    handleZyjxtItemClick(e) {
+        const index = e.target.dataset.index;
+        this.setData({
+            showPop: false,
+            zyjxt:this.data.zyjxt_arr[index].description
+        })
     }
 });

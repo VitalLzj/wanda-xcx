@@ -1,0 +1,22 @@
+{
+  "name": "wanda-xcx",
+  "version": "1.0.0",
+  "description": "商管小程序版？？",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VitalLzj/wanda-xcx.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VitalLzj/wanda-xcx/issues"
+  },
+  "homepage": "https://github.com/VitalLzj/wanda-xcx#readme",
+  "dependencies": {
+    "@vant/weapp": "^1.0.5"
+  }
+}

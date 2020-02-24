@@ -14,3 +14,5 @@
 </button>
 
     <template is="myTemp" data="{{param1:111}}"></template>
+
+    <van-button type="primary">按钮</van-button>

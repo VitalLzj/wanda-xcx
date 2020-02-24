@@ -1,0 +1,5 @@
+<template name="pop_header">
+    <view class="tmp_title">
+        <text>{{title}}</text>
+    </view>
+</template>

@@ -1,0 +1,11 @@
+<import src="../pop_header/index.wxml" />
+<import src="../pop_footer/index.wxml" />
+<template name="bxyxj">
+    <view class="tmp_pop">
+        <template is="pop_header" data="{{title}}" />
+        <view class="tmp_content">
+            <van-cell bind:tap="handleYxjItemClick" data-index="{{index}}" wx:for="{{yxj_arr}}" title="{{item.description}}" wx:key="value" />
+        </view>
+        <template is="pop_footer" />
+    </view>
+</template>
