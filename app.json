@@ -5,7 +5,8 @@
     "pages/pending/index",
     "pages/todo/index",
     "pages/new/index",
-    "pages/repair_new/index"
+    "pages/repair_new/index",
+    "pages/xj/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -5,7 +5,8 @@
         "van-divider": "/@vant/weapp/divider/index",
         "my_scan": "/components/bar_code/index",
         "van-cell": "/@vant/weapp/cell/index",
-        "van-popup": "/@vant/weapp/popup/index"
+        "van-popup": "/@vant/weapp/popup/index",
+        "van-search": "/@vant/weapp/search/index"
     },
     "navigationBarTitleText": "新建报修"
 }

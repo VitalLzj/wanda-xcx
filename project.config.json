@@ -85,6 +85,13 @@
 					"pathName": "pages/user/index",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": 4,
+					"name": "巡检",
+					"pathName": "pages/xj/index",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

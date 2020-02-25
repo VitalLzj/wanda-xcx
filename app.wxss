@@ -2,6 +2,7 @@
 
 @import "./styles/weui.wxss";
 @import "./templates/bxlx/index.wxss";
+@import "./templates/repair_asset/index.wxss";
 page,
 view,
 text,

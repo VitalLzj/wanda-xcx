@@ -151,3 +151,19 @@ export const login = () => {
         });
     })
 }
+
+const fileManager = wx.getFileSystemManager();
+export const readFile = (filePath) => {
+    return new Promise((resolve, reject) => {
+        fileManager.readFile({
+            filePath: filePath,
+            encoding: 'base64',
+            success: (result) => {
+                resolve(result.data);
+            },
+            fail: (err) => {
+                reject(err);
+            }
+        });
+    })
+}

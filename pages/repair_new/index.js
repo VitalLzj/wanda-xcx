@@ -1,9 +1,9 @@
 import { formatTime } from '../../utils/date.js';
-import { httpGet } from '../../request/index.js';
+import { httpGet, httpPost } from '../../request/index.js';
+import { readFile } from '../../utils/asyncWx.js';
 import regeneratorRuntime from '../../libs/runtime/runtime';
 
 let globalData = getApp().globalData;
-
 //Page Object
 Page({
     data: {
@@ -95,7 +95,11 @@ Page({
                 id: 15,
                 description: '空调系统'
             }
-        ]
+        ],
+        asset_arr: [],
+        searchValue: '',
+        location_arr: [],
+        photoList: []
     },
     //options(Object)
     onLoad: function(options) {
@@ -104,19 +108,32 @@ Page({
     onReady: function() {
 
     },
-    onShow: function() {
+    onShow: function() {},
+    onBlur(event) {
+        this.setData({
+            wtxx: event.detail.value
+        })
     },
     afterRead(event) {
         const { file } = event.detail;
-        const files = [];
+        let files = [];
+        let photoList = [];
         file.forEach(element => {
             files.push({
                 url: element.path,
                 name: Date.now()
             })
+            readFile(element.path).then(function(rs) {
+                photoList.push({
+                    ownertable: 'SR',
+                    imgcode: rs,
+                    filename: globalData.personid + new Date().getTime()
+                });
+            })
         });
         this.setData({
-            fileList: [...this.data.fileList, ...files]
+            fileList: [...this.data.fileList, ...files],
+            photoList
         })
     },
     deleteFile(event) {
@@ -128,7 +145,6 @@ Page({
     },
     async handleTap(e) {
         const option = e.target.dataset.options;
-
         try {
             if (option === 'yxj') {
                 let result = await httpGet(true, {
@@ -167,11 +183,43 @@ Page({
                     showPop: true,
                     option
                 })
+            } else if (option === 'asset') {
+                let result = await httpGet(true, {
+                    url: 'basedata/asset',
+                    data: { siteid: globalData.siteid }
+                });
+                result = result.data;
+                const asset_arr = result.map((key) => {
+                    return {
+                        description: key.sbjc,
+                        value: key.assetnum
+                    }
+                });
+                this.setData({
+                    showPop: true,
+                    option,
+                    asset_arr
+                })
+            } else if (option === 'location') {
+                let result = await httpGet(true, {
+                    url: 'basedata/locations',
+                    data: { siteid: globalData.siteid }
+                });
+                result = result.data;
+                const location_arr = result.map((key) => {
+                    return {
+                        description: key.description,
+                        value: key.location
+                    }
+                });
+                this.setData({
+                    showPop: true,
+                    option,
+                    location_arr
+                })
             }
         } catch (error) {
-            wx.showToast({
-                title: error
-            });
+            console.debug(error);
         }
     },
     onClose() {
@@ -199,7 +247,30 @@ Page({
         const index = e.target.dataset.index;
         this.setData({
             showPop: false,
-            zyjxt:this.data.zyjxt_arr[index].description
+            zyjxt: this.data.zyjxt_arr[index].description
         })
+    },
+    handleAssetItemClick(e) {
+        const index = e.target.dataset.index;
+        if (this.data.option === 'asset') {
+            this.setData({
+                showPop: false,
+                assetnum: this.data.asset_arr[index].value,
+                assetname: this.data.asset_arr[index].description
+            })
+        } else {
+            this.setData({
+                showPop: false,
+                location: this.data.location_arr[index].value,
+                locationname: this.data.location_arr[index].description
+            })
+        }
+    },
+    async commit() {
+        const result = await httpPost({
+            url: 'repair/sysnSr',
+            data: this.data
+        });
+        console.debug(result);
     }
 });

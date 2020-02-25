@@ -1,17 +1,19 @@
 <import src="/templates/bxlx/index.wxml" />
 <import src="/templates/bxyxj/index.wxml" />
 <import src="/templates/zyjxt/index.wxml" />
+<import src="/templates/repair_asset/index.wxml" />
+<import src="/templates/repair_location/index.wxml" />
 <view class="page_repair">
   <view class="page_content">
     <van-cell-group>
       <van-field value="{{ bxsj }}" size="large" disabled label="报修时间" />
       <van-field value="{{ fwsqyxj_desc }}" size="large" is-link disabled label="优先级" disabled bindinputTap="handleTap" data-options="yxj" />
-      <van-field value="{{ wtxx }}" size="large" type="textarea" border="{{border}}" fixed clearable label="问题现象" autosize placeholder="请填写问题现象" />
+      <van-field value="{{ wtxx }}" size="large" type="textarea" bind:blur="onBlur" fixed clearable label="问题现象" autosize placeholder="请填写问题现象" />
       <van-divider customStyle="margin:0;margin-left: var(--cell-horizontal-padding,16px); " />
       <van-field value="{{ bxlx_name }}" size="large" is-link disabled bindinputTap="handleTap" data-options="bxlx" label="报修类型" />
       <van-field value="{{ zyjxt }}" size="large" is-link disabled label="系统" bindinputTap="handleTap" data-options="zyjxt" placeholder="请选择相关系统" />
-      <van-field value="{{ assetname }}" size="large" is-link disabled label="主设备" placeholder="请选择相关设备" />
-      <van-field value="{{ locationname }}" size="large" is-link disabled label="主位置" placeholder="请选择相关位置" />
+      <van-field value="{{ assetname }}" size="large" is-link disabled label="主设备" bindinputTap="handleTap" data-options="asset" placeholder="请选择相关设备" />
+      <van-field value="{{ locationname }}" size="large" is-link disabled label="主位置" bindinputTap="handleTap" data-options="location" placeholder="请选择相关位置" />
     </van-cell-group>
     <view class="tips">
       <text>照片信息</text>
@@ -19,7 +21,7 @@
     <van-uploader file-list="{{ fileList }}" preview-size="70px" max-count="5" multiple bind:delete="deleteFile" bind:after-read="afterRead" />
   </view>
   <view class="page_footer">
-    <button>提交</button>
+    <button bind:tap="commit">提交</button>
     <my_scan bindscanCallback="handleScanCallback" />
   </view>
 </view>
@@ -27,5 +29,7 @@
   <template wx:if="{{option === 'yxj'}}" data="{{title:'请选择优先级',yxj_arr}}" is="bxyxj"></template>
   <template wx:elif="{{option === 'bxlx'}}" data="{{title:'请选择报修类型',bxlx_arr}}" is="bxlx"></template>
   <template wx:elif="{{option === 'zyjxt'}}" data="{{title:'请选择相关系统',zyjxt_arr}}" is="zyjxt"></template>
+  <template wx:elif="{{option === 'asset'}}" data="{{title:'请选择相关设备',asset_arr,searchValue}}" is="asset"></template>
+  <template wx:elif="{{option === 'location'}}" data="{{title:'请选择相关位置',location_arr,searchValue}}" is="location"></template>
 
 </van-popup>

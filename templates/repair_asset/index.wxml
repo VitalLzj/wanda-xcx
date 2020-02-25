@@ -1,0 +1,13 @@
+<import src="../pop_search_header/index.wxml" />
+<import src="../pop_footer/index.wxml" />
+<template name="asset">
+    <view class="tmp_search_pop">
+        <template is="pop_header" data="{{title,searchValue}}" />
+        <view class="tmp_content">
+            <scroll-view scroll-y>
+                <van-cell bind:tap="handleAssetItemClick" data-index="{{index}}" wx:for="{{asset_arr}}" title="{{item.description}}" wx:key="value" />
+            </scroll-view>
+        </view>
+        <template is="pop_footer" />
+    </view>
+</template>

@@ -1,0 +1,10 @@
+<template name="pop_header">
+    <view class="tmp_search_view">
+        <view class="tmp_search_title">
+            <text>{{title}}</text>
+        </view>
+        <view class="tmp_search_bar">
+            <van-search value="{{ searchValue }}" placeholder="请输入搜索关键词" />
+        </view>
+    </view>
+</template>
