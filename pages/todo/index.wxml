@@ -1,1 +1,36 @@
-<myTabs></myTabs>
+<view class="todo">
+    <view class="searchBar">
+        <van-search value="{{ searchValue }}" placeholder="请输入搜索关键词" />
+    </view>
+    <view class="nav">
+        <van-tabs active="{{ active }}" color="{{themeColor}}" bind:change="onChange">
+            <van-tab title="安全巡检">
+                <scroll-view 
+                refresher-enabled="{{true}}"
+                refresher-threshold="{{100}}"
+                refresher-default-style="white"
+                refresher-background="lightgreen"
+                refresher-triggered="{{triggered}}"
+                bindrefresherpulling="onPulling"
+                bindrefresherrefresh="onRefresh"
+                bindrefresherrestore="onRestore"
+                bindrefresherabort="onAbort"
+                scroll-y class="xj_content">
+                    <view class="tmp_xjrw" wx:for="{{aqxj_arr}}" wx:key="xjgzglid">
+                        <view class="content">
+                            <view class="title">{{item.description}}</view>
+                            <view class="time">时间:{{item.sjkssj}}-{{item.sjwcsj}}</view>
+                            <view class="time">计划完成时间:{{item.jhjsdate}}</view>
+                            <view class="time">
+                                设备: {{item.ybassetsl}}/{{item.assetsl}}  异常:{{item.ycsl}}
+                            </view>
+                        </view>
+                        <view class="status">{{item.status2}}</view>
+                    </view>
+                </scroll-view>
+            </van-tab>
+            <van-tab title="安全维保">内容 2</van-tab>
+            <van-tab title="第三方检测">内容 3</van-tab>
+        </van-tabs>
+    </view>
+</view>

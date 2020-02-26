@@ -1,0 +1,43 @@
+.todo {
+    .searchBar {
+        height  : 88rpx;
+    }
+
+    .nav {
+        .xj_content {
+            // height: calc(~"100vh - 264rpx");
+            height: 404rpx;
+            // width: 100%;
+            background-color: yellow;
+            .tmp_xjrw {
+                display        : flex;
+                justify-content: center;
+                align-items    : center;
+                padding        : 10rpx;
+                border-bottom  : 1px solid var(--dividerColor);
+
+                .content {
+                    flex   : 5;
+                    padding: 10rpx;
+
+                    .title {
+                        display           : -webkit-box;
+                        overflow          : hidden;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 2;
+                    }
+
+                    .time {
+                        color    : #666;
+                        font-size: 25rpx;
+                    }
+
+                }
+
+                .status {
+                    flex: 1;
+                }
+            }
+        }
+    }
+}

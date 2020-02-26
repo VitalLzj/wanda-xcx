@@ -1,1 +1,31 @@
-/* pages/todo/index.wxss */
+.todo .searchBar {
+  height: 88rpx;
+}
+.todo .nav .xj_content {
+  height: 404rpx;
+  background-color: yellow;
+}
+.todo .nav .xj_content .tmp_xjrw {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10rpx;
+  border-bottom: 1px solid var(--dividerColor);
+}
+.todo .nav .xj_content .tmp_xjrw .content {
+  flex: 5;
+  padding: 10rpx;
+}
+.todo .nav .xj_content .tmp_xjrw .content .title {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.todo .nav .xj_content .tmp_xjrw .content .time {
+  color: #666;
+  font-size: 25rpx;
+}
+.todo .nav .xj_content .tmp_xjrw .status {
+  flex: 1;
+}

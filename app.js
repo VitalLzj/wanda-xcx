@@ -64,9 +64,10 @@ App({
     checkUser() {},
     globalData: {
         themeColor: '#005bac',
-        schema: "http",
-        host: "gcglcs-dev.wanda.cn",
-        port: 80,
+        schema: "https",
+        // host: "gcglcs-dev.wanda.cn",
+        host: 'gcgl.wanda.cn',
+        port: 443,
         path: "/wanda-service/rs/",
         personid: '129362',
         siteid: 'S1090',
