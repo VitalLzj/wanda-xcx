@@ -1,30 +1,37 @@
 <van-tabbar active="{{ active }}" bind:change="onChange">
-  <van-tabbar-item wx:for="{{ list }}" wx:key="index">
-    <image
-      slot="icon"
-      src="{{ item.icon }}"
-      mode="aspectFit"
-      style="width: 30px; height: 18px;"
-    />
-    <image
-      slot="icon-active"
-      src="{{ item.selectedIconPath }}"
-      mode="aspectFit"
-      style="width: 30px; height: 18px;"
-    />
-    {{
-    item.text
-   }}
-  </van-tabbar-item>
+	<van-tabbar-item wx:for="{{ list }}" wx:key="index">
+		<image
+		 slot="icon"
+		 src="{{ item.icon }}"
+		 mode="aspectFit"
+		 style="width: 30px; height: 18px;"
+		/>
+		<image
+		 slot="icon-active"
+		 src="{{ item.selectedIconPath }}"
+		 mode="aspectFit"
+		 style="width: 30px; height: 18px;"
+		/>
+		{{
+		item.text
+		}}
+	</van-tabbar-item>
 </van-tabbar>
 <!-- 屏幕背景变暗的背景 -->
-<view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+<view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}" />
 <!-- 弹出框 -->
 <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">
-		<view class="new_wrap">
-				<view class="new_item" wx:for="{{new_list}}" wx:key="id" bindtap = "handleNavClick" data-id="{{item.id}}">
-						<image src="{{item.imageUrl}}" mode="widthFix" />
-						<text>{{item.name}}</text>
-				</view>
+	<view class="new_wrap">
+		<view
+		 class="new_item"
+		 wx:for="{{new_list}}"
+		 wx:key="id"
+		 bindtap="handleNavClick"
+		 data-id="{{item.id}}"
+		>
+			<image src="{{item.imageUrl}}" mode="widthFix" />
+			<text>{{item.name}}</text>
 		</view>
+	</view>
 </view>
+

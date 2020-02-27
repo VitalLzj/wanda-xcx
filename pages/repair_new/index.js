@@ -99,7 +99,8 @@ Page({
         asset_arr: [],
         searchValue: '',
         location_arr: [],
-        photoList: []
+        photoList: [],
+        isIphoneX: globalData.isIphoneX
     },
     //options(Object)
     onLoad: function(options) {

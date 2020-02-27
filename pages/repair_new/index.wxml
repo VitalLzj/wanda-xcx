@@ -20,7 +20,7 @@
     </view>
     <van-uploader file-list="{{ fileList }}" preview-size="70px" max-count="5" multiple bind:delete="deleteFile" bind:after-read="afterRead" />
   </view>
-  <view class="page_footer">
+  <view class="page_footer {{isIphoneX ?'fix-iphonex-button':''}}">
     <button bind:tap="commit">提交</button>
     <my_scan bindscanCallback="handleScanCallback" />
   </view>
@@ -31,5 +31,4 @@
   <template wx:elif="{{option === 'zyjxt'}}" data="{{title:'请选择相关系统',zyjxt_arr}}" is="zyjxt"></template>
   <template wx:elif="{{option === 'asset'}}" data="{{title:'请选择相关设备',asset_arr,searchValue}}" is="asset"></template>
   <template wx:elif="{{option === 'location'}}" data="{{title:'请选择相关位置',location_arr,searchValue}}" is="location"></template>
-
 </van-popup>

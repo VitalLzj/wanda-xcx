@@ -3,30 +3,30 @@ App({
     /**
      * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
      */
-    onLaunch: function() {
+    onLaunch: function () {
         this.checkUpdate();
         this.checkUser();
+        this.getSystemInfo();
     },
 
     /**
      * 当小程序启动，或从后台进入前台显示，会触发 onShow
      */
-    onShow: function(options) {
+    onShow: function (options) {
 
     },
 
     /**
      * 当小程序从前台进入后台，会触发 onHide
      */
-    onHide: function() {
-        console.debug("onHide");
+    onHide: function () {
 
     },
 
     /**
      * 当小程序发生脚本错误，或者 api 调用失败时，会触发 onError 并带上错误信息
      */
-    onError: function(msg) {
+    onError: function (msg) {
         console.debug("------------onError");
         wx.showToast({
             title: '报错了' + msg,
@@ -35,14 +35,14 @@ App({
     checkUpdate() {
         if (wx.canIUse('getUpdateManager')) {
             const updateManager = wx.getUpdateManager()
-            updateManager.onCheckForUpdate(function(res) {
+            updateManager.onCheckForUpdate(function (res) {
                 // 请求完新版本信息的回调
                 if (res.hasUpdate) {
-                    updateManager.onUpdateReady(function() {
+                    updateManager.onUpdateReady(function () {
                         wx.showModal({
                             title: '更新提示',
                             content: '新版本已经准备好，是否重启应用？',
-                            success: function(res) {
+                            success: function (res) {
                                 if (res.confirm) {
                                     // 新的版本已经下载好，调用 applyUpdate 应用新版本并重启
                                     updateManager.applyUpdate()
@@ -50,7 +50,7 @@ App({
                             }
                         })
                     })
-                    updateManager.onUpdateFailed(function() {
+                    updateManager.onUpdateFailed(function () {
                         // 新的版本下载失败
                         wx.showModal({
                             title: '已经有新版本了哟~',
@@ -61,7 +61,19 @@ App({
             })
         }
     },
-    checkUser() {},
+    checkUser() { },
+    getSystemInfo() {
+        let that = this;
+        wx.getSystemInfo({
+            success: (result) => {
+                console.debug(result);
+                if (result.model.search('iPhone X') != -1) {
+                    that.globalData.isIphoneX = true;
+                }
+            }
+        });
+
+    },
     globalData: {
         themeColor: '#005bac',
         schema: "https",
@@ -74,6 +86,7 @@ App({
         displayName: '马少镇',
         mobile: '17600145417',
         bm: '1001',
-        bmname: '哈哈哈哈'
+        bmname: '哈哈哈哈',
+        isIphoneX: false
     }
 })

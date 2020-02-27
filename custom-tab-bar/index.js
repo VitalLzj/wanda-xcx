@@ -1,3 +1,5 @@
+let app = getApp();
+
 Component({
     data: {
         selected: 0,
@@ -65,7 +67,8 @@ Component({
             name: '问题台账',
             imageUrl: '/icons/tabs8.png'
         }
-        ]
+        ],
+        isIphoneX: app.globalData.isIphoneX
     },
     attached() { },
     methods: {
