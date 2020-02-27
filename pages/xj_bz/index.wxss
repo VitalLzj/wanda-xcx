@@ -1,0 +1,40 @@
+.xj_bz .xj_title {
+  height: 88rpx;
+  line-height: 88rpx;
+  color: var(--themeColor);
+  border-bottom: 1px solid var(--dividerColor);
+  padding-left: var(--cell-horizontal-padding, 16px);
+}
+.xj_bz .xj_tb {
+  height: 88rpx;
+  line-height: 88rpx;
+  display: flex;
+  padding-left: var(--cell-horizontal-padding, 16px);
+  border-bottom: 1px solid var(--dividerColor);
+}
+.xj_bz .xj_tb van-radio-group {
+  margin-left: 88rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.xj_bz .xj_tb van-radio-group .myClass {
+  float: right;
+}
+.xj_bz .xj_tb van-radio-group .right {
+  margin-left: 20rpx;
+}
+.xj_bz .xj_photo_title {
+  clear: both;
+  padding-left: var(--cell-horizontal-padding, 16px);
+  height: 88rpx;
+  line-height: 88rpx;
+}
+.xj_bz .xj_photo_wrap {
+  margin-left: var(--cell-horizontal-padding, 16px);
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+.xj_bz .xj_photo_wrap .img-class {
+  margin-right: 20rpx;
+}

@@ -1,0 +1,31 @@
+<view class="xj_bz">
+    <view class="xj_title">基本资料</view>
+    <view class="xj_cell">
+        <van-cell-group>
+            <van-field label="位置名称" value="{{ data.wzjc }}" disabled />
+            <van-field label="设备名称" value="{{ data.sbjc }}" disabled />
+            <van-field label="项目名称" value="{{ data.xjxm }}" disabled />
+            <van-field label="项目标准" value="{{ data.xmbz }}" disabled />
+            <van-field label="操作步骤" value="{{ data.czbz }}" disabled />
+            <van-field label="是否拍照" value="{{ data.pz?'是':'否' }}" disabled />
+            <van-field label="类型" value="{{ data.xjlx }}" disabled />
+        </van-cell-group>
+    </view>
+    <view class="xj_title">巡检填报</view>
+    <view class="xj_tb">
+        <text>巡检结果</text>
+        <van-radio-group disabled value="{{ data.zt }}" bind:change="onChange">
+            <van-radio custom-class="myClass" name="正常">正常</van-radio>
+            <van-radio custom-class="myClass right" name="异常">异常</van-radio>
+        </van-radio-group>
+    </view>
+    <van-field label="巡检备注" value="{{ data.bz }}" disabled />
+    <view class="xj_photo_title">
+        <text>照片信息</text>
+    </view>
+    <view class="xj_photo_wrap">
+        <block wx:for="{{photos}}" wx:key="id">
+            <van-image bind:click="onImgClick" data-index="{{index}}" custom-class="img-class" width="70" height="70" src="{{item.url}}" />
+        </block>
+    </view>
+</view>

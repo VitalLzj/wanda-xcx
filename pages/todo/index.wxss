@@ -1,9 +1,12 @@
+page {
+  height: 95vh;
+  width: 100vw;
+}
 .todo .searchBar {
   height: 88rpx;
 }
 .todo .nav .xj_content {
-  height: 404rpx;
-  background-color: yellow;
+  height: calc(100vh - 264rpx);
 }
 .todo .nav .xj_content .tmp_xjrw {
   display: flex;

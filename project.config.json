@@ -92,6 +92,27 @@
 					"pathName": "pages/xj/index",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "位置",
+					"pathName": "pages/xj_wz/index",
+					"query": "id=7615026&description=aaaa",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "设备",
+					"pathName": "pages/xj_sb/index",
+					"query": "id=7615026&location=5132&description=步行街1层-1号强电井(1F-7A)",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "标准",
+					"pathName": "pages/xj_bz/index",
+					"query": "id=1598006118",
+					"scene": null
 				}
 			]
 		}

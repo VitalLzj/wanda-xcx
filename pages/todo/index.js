@@ -25,8 +25,7 @@ Page({
         active: 0,
         searchValue: '',
         aqxj_arr: [],
-        themeColor: app.globalData.themeColor,
-        triggered: false
+        themeColor: app.globalData.themeColor
     },
     /**
      * 生命周期函数--监听页面加载
@@ -62,14 +61,20 @@ Page({
                     status2: item.status2
                 }
             })
-            this.setData({
-                aqxj_arr: content
-            })
-            page++;
+            if (content.length > 0) {
+                this.setData({
+                    aqxj_arr: [...this.data.aqxj_arr, ...content]
+                })
+            } else {
+                wx.showToast({
+                    title: '么的了'
+                });
+            }
         } catch (error) {
             console.debug(error);
         } finally {
             wx.hideNavigationBarLoading();
+            wx.stopPullDownRefresh();
             wx.setNavigationBarTitle({
                 title: '待办'
             });
@@ -81,23 +86,13 @@ Page({
      */
     onReady: function() {
 
-        setTimeout(() => {
-            this.setData({
-                triggered: true,
-            })
-        }, 1000)
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
     onShow: function() {
-        if (typeof this.getTabBar === 'function' &&
-            this.getTabBar()) {
-            this.getTabBar().setData({
-                selected: 3
-            })
-        }
+        this.getTabBar().init();
     },
     onChange(event) {
         wx.showToast({
@@ -105,32 +100,41 @@ Page({
             icon: 'none'
         });
     },
-    onPullDownRefresh: function() {
-        console.debug("xiala。。。");
-        page = 0;
+    onBottom: function() {
+        page++;
         this.getXjData();
     },
-
-    onPulling(e) {
-        console.log('onPulling:', e)
+    onTop() {
+        page = 0;
+        this.setData({
+            aqxj_arr: []
+        });
+        this.getXjData();
     },
-
-    onRefresh() {
-        if (this._freshing) return
-        this._freshing = true
-        setTimeout(() => {
-            this.setData({
-                triggered: false,
+    onSearch(e) {
+        const searchValue = e.detail;
+        if (searchValue !== '') {
+            conditionslist.push({
+                property: "description",
+                operator: "contains",
+                value: searchValue
             })
-            this._freshing = false
-        }, 3000)
+        } else {
+            conditionslist.splice(1, 1);
+        }
+        page = 0;
+        this.setData({
+            aqxj_arr: []
+        });
+        this.getXjData();
     },
+    onItmeTap(e) {
+        const index = e.currentTarget.dataset.index;
+        const id = this.data.aqxj_arr[index].xjgzglid;
+        const description = this.data.aqxj_arr[index].description;
+        wx.navigateTo({
+            url: '/pages/xj_wz/index?id=' + id + "&description=" + description
+        });
 
-    onRestore(e) {
-        console.log('onRestore:', e)
-    },
-
-    onAbort(e) {
-        console.log('onAbort', e)
-    },
+    }
 })

@@ -1,0 +1,34 @@
+.xj_wz .xj_wz_header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 88rpx;
+}
+.xj_wz .xj_wz_content {
+  margin-top: 88rpx;
+  height: calc(100vh - 88rpx);
+}
+.xj_wz .xj_wz_content .tmp_xjrw {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10rpx;
+  border-bottom: 1px solid var(--dividerColor);
+}
+.xj_wz .xj_wz_content .tmp_xjrw .content {
+  flex: 5;
+  padding: 10rpx;
+}
+.xj_wz .xj_wz_content .tmp_xjrw .content .title {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.xj_wz .xj_wz_content .tmp_xjrw .content .time {
+  color: #666;
+  font-size: 25rpx;
+}
+.xj_wz .xj_wz_content .tmp_xjrw .status {
+  flex: 1;
+}

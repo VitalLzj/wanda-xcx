@@ -1,12 +1,15 @@
 {
   "pages": [
-    "pages/user/index",
     "pages/index/index",
     "pages/pending/index",
     "pages/todo/index",
     "pages/new/index",
+    "pages/user/index",
     "pages/repair_new/index",
-    "pages/xj/index"
+    "pages/xj/index",
+    "pages/xj_wz/index",
+    "pages/xj_sb/index",
+    "pages/xj_bz/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -23,34 +26,19 @@
     "borderStyle": "black",
     "list": [
       {
-        "pagePath": "pages/index/index",
-        "text": "首页",
-        "iconPath": "icons/home.png",
-        "selectedIconPath": "icons/home_pressed.png"
+        "pagePath": "pages/index/index"
       },
       {
-        "pagePath": "pages/pending/index",
-        "text": "待领",
-        "iconPath": "icons/pending.png",
-        "selectedIconPath": "icons/pending_pressed.png"
+        "pagePath": "pages/pending/index"
       },
       {
-        "pagePath": "pages/new/index",
-        "text": "新建",
-        "iconPath": "icons/new.png",
-        "selectedIconPath": "icons/new.png"
+        "pagePath": "pages/new/index"
       },
       {
-        "pagePath": "pages/todo/index",
-        "text": "代办",
-        "iconPath": "icons/todo.png",
-        "selectedIconPath": "icons/todo_pressed.png"
+        "pagePath": "pages/todo/index"
       },
       {
-        "pagePath": "pages/user/index",
-        "text": "个人",
-        "iconPath": "icons/user.png",
-        "selectedIconPath": "icons/user_pressed.png"
+        "pagePath": "pages/user/index"
       }
     ]
   },

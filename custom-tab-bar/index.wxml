@@ -1,13 +1,22 @@
-<!-- miniprogram/custom-tab-bar/index.wxml -->
-<cover-view class="tab-bar">
-		<cover-view class="tab-bar-border"></cover-view>
-		<cover-view wx:for="{{list}}" wx:key="index" class="tab-bar-item" data-path="{{item.pagePath}}" data-index="{{index}}" bindtap="switchTab">
-				<cover-image src="{{selected === index ? item.selectedIconPath : item.iconPath}}"></cover-image>
-				<cover-view style="color: {{selected === index ? selectedColor : color}}">
-						{{item.text}}
-				</cover-view>
-		</cover-view>
-</cover-view>
+<van-tabbar active="{{ active }}" bind:change="onChange">
+  <van-tabbar-item wx:for="{{ list }}" wx:key="index">
+    <image
+      slot="icon"
+      src="{{ item.icon }}"
+      mode="aspectFit"
+      style="width: 30px; height: 18px;"
+    />
+    <image
+      slot="icon-active"
+      src="{{ item.selectedIconPath }}"
+      mode="aspectFit"
+      style="width: 30px; height: 18px;"
+    />
+    {{
+    item.text
+   }}
+  </van-tabbar-item>
+</van-tabbar>
 <!-- 屏幕背景变暗的背景 -->
 <view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
 <!-- 弹出框 -->

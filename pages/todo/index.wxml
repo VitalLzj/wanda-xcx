@@ -1,22 +1,12 @@
 <view class="todo">
     <view class="searchBar">
-        <van-search value="{{ searchValue }}" placeholder="请输入搜索关键词" />
+        <van-search value="{{ searchValue }}" bind:search="onSearch" placeholder="请输入搜索关键词" />
     </view>
     <view class="nav">
         <van-tabs active="{{ active }}" color="{{themeColor}}" bind:change="onChange">
             <van-tab title="安全巡检">
-                <scroll-view 
-                refresher-enabled="{{true}}"
-                refresher-threshold="{{100}}"
-                refresher-default-style="white"
-                refresher-background="lightgreen"
-                refresher-triggered="{{triggered}}"
-                bindrefresherpulling="onPulling"
-                bindrefresherrefresh="onRefresh"
-                bindrefresherrestore="onRestore"
-                bindrefresherabort="onAbort"
-                scroll-y class="xj_content">
-                    <view class="tmp_xjrw" wx:for="{{aqxj_arr}}" wx:key="xjgzglid">
+                <scroll-view scroll-y bindscrolltolower="onBottom" bindscrolltoupper="onTop" upper-threshold="0" lower-threshold="0" class="xj_content">
+                    <view class="tmp_xjrw" bind:tap="onItmeTap" data-index="{{index}}" wx:for="{{aqxj_arr}}" wx:key="xjgzglid">
                         <view class="content">
                             <view class="title">{{item.description}}</view>
                             <view class="time">时间:{{item.sjkssj}}-{{item.sjwcsj}}</view>

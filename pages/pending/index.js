@@ -40,6 +40,7 @@ Page({
         xjData: []
     },
     onShow() {
+        this.getTabBar().init();
         this.getPendingData(this.data.activeTab);
     },
     onTabCLick(e) {
