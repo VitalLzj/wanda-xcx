@@ -3,10 +3,10 @@
         <van-search value="{{ searchValue }}" bind:search="onSearch" placeholder="请输入搜索关键词" />
     </view>
     <view class="xj_wz_content">
-        <view class="tmp_xjrw" bind:tap="onItmeTap" data-index="{{index}}" wx:for="{{wz_arr}}" wx:key="xjgzglid">
+        <view hover-class="hover-class" class="tmp_xjrw" bind:tap="onItmeTap" data-index="{{index}}" wx:for="{{wz_arr}}" wx:key="xjgzglid">
             <view class="content">
                 <view class="title">{{item.wzmc}}</view>
-                <view class="time">时间:{{item.sjkssj}}-{{item.sjwcsj}}</view>
+                <view wx:if="{{item.sjkssj}}" class="time">时间:{{item.sjkssj}}-{{item.sjwcsj}}</view>
                 <view class="time">用时:</view>
                 <view class="time">设备: {{item.ybassetsl}}/{{item.assetsl}}  异常:{{item.ycsl}}</view>
             </view>

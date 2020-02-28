@@ -30,7 +30,7 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function(options) {
+    onLoad: function (options) {
         this.getXjData();
     },
     async getXjData() {
@@ -54,10 +54,10 @@ Page({
                     ybassetsl: item.ybassetsl,
                     assetsl: item.assetsl,
                     ycsl: item.ycsl,
-                    // sjkssj: formatDateMi(parase(item.sjkssj)),
-                    // sjwcsj: formatDateMi(parase(item.sjwcsj)),
-                    sjkssj: item.sjkssj,
-                    sjwcsj: item.sjwcsj,
+                    sjkssj: item.sjkssj ? formatDateMi(parase(item.sjkssj)) : item.sjkssj,
+                    sjwcsj: item.sjwcsj ? formatDateMi(parase(item.sjwcsj)) : item.sjwcsj,
+                    // sjkssj: item.sjkssj,
+                    // sjwcsj: item.sjwcsj,
                     status2: item.status2
                 }
             })
@@ -84,14 +84,14 @@ Page({
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
-    onReady: function() {
+    onReady: function () {
 
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function() {
+    onShow: function () {
         this.getTabBar().init();
     },
     onChange(event) {
@@ -100,7 +100,7 @@ Page({
             icon: 'none'
         });
     },
-    onBottom: function() {
+    onBottom: function () {
         page++;
         this.getXjData();
     },

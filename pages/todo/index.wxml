@@ -6,10 +6,10 @@
         <van-tabs active="{{ active }}" color="{{themeColor}}" bind:change="onChange">
             <van-tab title="安全巡检">
                 <scroll-view scroll-y bindscrolltolower="onBottom" bindscrolltoupper="onTop" upper-threshold="0" lower-threshold="0" class="xj_content">
-                    <view class="tmp_xjrw" bind:tap="onItmeTap" data-index="{{index}}" wx:for="{{aqxj_arr}}" wx:key="xjgzglid">
+                    <view hover-class="hover-class" class="tmp_xjrw" bind:tap="onItmeTap" data-index="{{index}}" wx:for="{{aqxj_arr}}" wx:key="xjgzglid">
                         <view class="content">
                             <view class="title">{{item.description}}</view>
-                            <view class="time">时间:{{item.sjkssj}}-{{item.sjwcsj}}</view>
+                            <view wx:if="{{item.sjkssj}}" class="time">时间:{{item.sjkssj}}-{{item.sjwcsj}}</view>
                             <view class="time">计划完成时间:{{item.jhjsdate}}</view>
                             <view class="time">
                                 设备: {{item.ybassetsl}}/{{item.assetsl}}  异常:{{item.ycsl}}

@@ -6,7 +6,7 @@
         <van-collapse value="{{ activeNames }}" bind:change="onChange">
             <van-collapse-item content-class="my-collapse-item" wx:for="{{sb_arr}}" wx:for-item="item1" wx:for-index="index1" wx:key="id" title="{{item1.sbmc?item1.sbmc:item1.wzmc}}" name="{{item1.id}}">
                 <block wx:for="{{item1.xjgzglbz}}" wx:for-item="item2" wx:for-index="index2" wx:key="xjgzglbzid">
-                    <van-cell bindtap="onItemTap" data-parentIndex="{{index1}}" data-index="{{index2}}" custom-class="my-cell-item" title="{{item2.xjxm}}">
+                    <van-cell bindtap="onItemTap" clickable data-parentIndex="{{index1}}" data-index="{{index2}}" custom-class="my-cell-item" title="{{item2.xjxm}}">
                         <van-icon slot="icon" class="{{ item2.zt==='正常'?'green-icon':'red-icon' }}" />
                     </van-cell>
                 </block>

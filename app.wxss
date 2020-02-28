@@ -3,6 +3,7 @@
 @import "./styles/weui.wxss";
 @import "./templates/bxlx/index.wxss";
 @import "./templates/repair_asset/index.wxss";
+
 page,
 view,
 text,
@@ -10,16 +11,16 @@ swiper,
 swiper-item,
 image,
 navigator {
-    padding: 0;
-    margin: 0;
+    padding   : 0;
+    margin    : 0;
     box-sizing: border-box;
 }
 
 page {
     /* 定义全局主题颜色变量 */
-    --themeColor: #005bac;
-    --dividerColor: #eee;
-    font-size: 28rpx;
+    --themeColor    : #005bac;
+    --dividerColor  : #eee;
+    font-size       : 28rpx;
     background-color: #fff;
 }
 
@@ -27,15 +28,22 @@ image {
     width: 100%;
 }
 
+/* iphoneX的适配 */
 .fix-iphonex-button {
     bottom: 68rpx !important;
-  }
-  
-  .fix-iphonex-button::after {
+}
+
+.fix-iphonex-button::after {
     content   : ' ';
     position  : fixed;
     bottom    : 0 !important;
     height    : 68rpx !important;
     width     : 100%;
     background: #fff;
-  }
+}
+
+/* view 点击时的效果 */
+.hover-class {
+    opacity   : 0.9;
+    background: #f7f7f7;
+}
